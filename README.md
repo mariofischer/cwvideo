@@ -20,6 +20,7 @@ How to use
 ### Requires
 
 * [MooTools Core](http://mootools.net/core)
+* [MooTools More: Fx.Slider](http://mootools.net/more)
 
 ### More Information
 
