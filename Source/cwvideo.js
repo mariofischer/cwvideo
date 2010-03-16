@@ -9,13 +9,14 @@ license:
   - MIT-style license
 
 requires:
-  core/1.2.4: '*'
+  core/1.2.4: '*',
+  more/1.2.4: Fx.Slider
 
 provides:
   - CwVideo
   
 version:
-  0.1
+  0.2
 ...
 */
 CwVideo = new Class({
