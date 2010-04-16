@@ -45,7 +45,7 @@ CwVideo = new Class({
 				videoWidth: false, videoHeight: false, poster: true, // HTMLVideoElement
 				error: false, networkState: false, preload: true, buffered: false, readyState: false, seeking: false, // HTMLMediaElement
 				currentTime: true, startTime: false, duration: false, paused: true, // HTMLMediaElement
-				defaultPlaybackRate: true, playbackRate: true, played: false, seekable: false, // HTMLMediaElement, these properties currently dont work in firefox  
+				defaultPlaybackRate: true, playbackRate: true, played: false, seekable: false, // HTMLMediaElement, these properties currently do *not* work in firefox  
 				ended: false, autoplay: true, loop: true, // HTMLMediaElement
 				controls: true, volume: true, muted: true,  // HTMLMediaElement
 				autobuffer: true // n/a

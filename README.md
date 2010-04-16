@@ -1,12 +1,9 @@
 CwVideo
 ===========
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+A toolkit to use and control HTML5-video with the current mootools release - and two extensions of Fx.Slider: A video timeline and a volume slider.
 
-![Screenshot](http://www.chipwreck.de/blog/wp-content/uploads/...)
+![Screenshot](http://www.chipwreck.de/blog/wp-content/uploads/2010/04/scrshot-cwvideo.png)
 
 ### Demo
 [www.chipwreck.de/blog/software/cwvideo/demo/](http://www.chipwreck.de/blog/software/cwvideo/demo/)

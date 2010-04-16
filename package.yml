@@ -2,6 +2,6 @@ name: CwVideo
 author: mario_fischer
 category: *
 tags: [video, html5, player, media]
-demo: http://www.chipwreck.de/blog/software/cwvideo/demo/?
-docs: http://www.chipwreck.de/blog/software/cwvideo/help/=
-current: 0.1
+demo: http://www.chipwreck.de/blog/software/cwvideo/demo/
+docs: http://www.chipwreck.de/blog/software/cwvideo/help/
+current: 0.2
