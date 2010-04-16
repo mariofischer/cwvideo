@@ -1,7 +1,7 @@
 name: CwVideo
 author: mario_fischer
-category: *
-tags: [video, html5, player, media]
+category: Media
+tags: [video, html5, player, media, control, slider, timeline]
 demo: http://www.chipwreck.de/blog/software/cwvideo/demo/
 docs: http://www.chipwreck.de/blog/software/cwvideo/help/
-current: 0.2
+current: 0.4
