@@ -16,7 +16,7 @@ provides:
   - CwVideo
   
 version:
-  0.2
+  0.5
 ...
 */
 CwVideo = new Class({
@@ -133,16 +133,25 @@ CwVideo = new Class({
 	
 	play: function()
 	{
+		if (Browser.Engine.trident) {
+			return;
+		}
 		this.video.play();
 	},
 	
 	pause: function()
 	{
+		if (Browser.Engine.trident) {
+			return;
+		}	
 		this.video.pause();
 	},
 	
 	togglePlay: function()
 	{
+		if (Browser.Engine.trident) {
+			return;
+		}
 		if (this.video.paused) {
 			this.video.play();
 		}
@@ -153,6 +162,9 @@ CwVideo = new Class({
 	
 	stop: function()
 	{
+		if (Browser.Engine.trident) {
+			return;
+		}
 		this.rewind();
 		this.video.pause();
 	},
@@ -202,7 +214,7 @@ provides:
   - CwVideo.Timeline
   
 version:
-  0.1
+  0.5
 ...
 */
 CwVideo.Timeline = new Class({
@@ -339,7 +351,7 @@ provides:
   - CwVideo.Volumeslider
   
 version:
-  0.1
+  0.5
 ...
 */
 CwVideo.Volumeslider = new Class({
