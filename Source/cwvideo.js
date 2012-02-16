@@ -16,7 +16,7 @@ provides:
   - CwVideo
 
 version:
-  0.5
+  0.6
 ...
 */
 CwVideo = new Class({
