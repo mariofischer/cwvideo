@@ -10,7 +10,7 @@
 window.addEvent('domready', function() {
 
 	myvideo = new CwVideo('myvid'); // initialize CwVideo
-	
+
 	var timeSlider1 = new CwVideo.Timeline('timeSliderBg', 'timeSlider', {
 	    wheel: true,
 	    video: 'myvid',
@@ -25,7 +25,7 @@ window.addEvent('domready', function() {
 	    steps: 10,
 	    video: 'myvid'
 	});
-	
+
 	var volSlider2 = new CwVideo.Volumeslider('volSliderBg2', 'volSlider2', {
 	    video: 'myvid'
 	});
@@ -35,7 +35,7 @@ window.addEvent('domready', function() {
 		$('mutebutton').setStyle('color', ( this.get('muted') ? '#f00' : '#000' ) );
 		$('volSlider').set('html', this.get('volume').toFixed(2));
 	});
-	
+
 	// Playback button on/off state
 	myvideo.addEvent('playbackHasChanged', function() {
 		$('playbutton').setStyle('color', ( this.video.get('paused') ? '#000' : '#00f' ) );
@@ -49,16 +49,16 @@ window.addEvent('domready', function() {
 			$('vidnetworkstate').set('html', myvideo.getNetworkState());
 		});
 	});
-	
+
 	// Show detailed video info
 	$('infobutton').addEvent('click', function(e) {
 		out = '';
 		$each(CwVideo.mediaProperties, function(is_w, a_property) {
 			out += '<label>' + a_property + ":</label> " + $('myvid').get(a_property) + "\n";
-		});	
+		});
 		$('info').set('html', out);
 	});
-	
+
 	myvideo.addEvent('error', function(event) {console.log(event.target.error);});
 
 });
@@ -71,7 +71,7 @@ window.addEvent('domready', function() {
 		Mootools video toolkit - use HTML 5-video with timeline controller and volume slider.
 	</p>
 	<p><small>Works in Safari 3+, Firefox 3.5+, Chrome 3+, Opera 10.5+</small></p>
-	<p> 
+	<p>
 		For more information: <a href="http://www.chipwreck.de/blog/software/cwvideo/">Homepage/Documentation/Feedback &raquo;</a>
 	</p>
 
@@ -82,21 +82,21 @@ window.addEvent('domready', function() {
 		<div class="anexample">
 			<h5>Example video (h.264/ogg)</h5>
 			<div class="anaction">
-				<video id="myvid" width="160" height="120" controls="controls">
-					<source src="cwvideo-mp4.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-					<source src="cwvideo-ogg.ogg" type='video/ogg; codecs="theora, vorbis"'>				</video>
+				<video id="myvid" width="320" height="120" controls="controls">
+					<source src="cwvideo-mp4.mp4#t=1.1,3.3" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+					<source src="cwvideo-ogg.ogg#t=1.1,3.3" type='video/ogg; codecs="theora, vorbis"'></video>
 				<button onclick="myvideo.video.set('controls', !myvideo.video.get('controls'))">toggle browser video controls</button>
 			</div>
 			<div class="anaction">
 				<p><small>Current Event:</small> <span id="videvent"></span></p>
 				<p><small>Ready State:</small> <span id="vidreadystate"></span></p>
-				<p><small>Network State:</small> <span id="vidnetworkstate"></span></p>	
+				<p><small>Network State:</small> <span id="vidnetworkstate"></span></p>
 			</div>
 		</div>
-		
+
 		<div class="anexample">
 			<h5>Buttons</h5>
-			
+
 			<div class="anaction">
 				<button id="playbutton" onclick="myvideo.togglePlay()">Play/Pause</button>
 				<button id="stopbutton" onclick="myvideo.stop()">STOP</button>
@@ -110,10 +110,15 @@ window.addEvent('domready', function() {
 				<br /><br />
 				<button onclick="myvideo.volumeChange(-0.1)">Vol-</button>
 				<button onclick="myvideo.volumeChange(+0.1)">Vol+</button>
+
+				<button onclick="myvideo.fullscreen()">Fullscreen</button>
+				<button onclick="myvideo.toggleFullscreen()">Fullscreen toggle</button>
 				<button id="mutebutton" onclick="myvideo.toggleMute()">Mute</button>
 			</div>
 		</div>
-		
+
+		<input type="range" step="any" id="seekbar">
+
 		<div class="anexample">
 
 			<h5>Timeline: Current time displayed, mouse wheel control</h5>
@@ -121,13 +126,13 @@ window.addEvent('domready', function() {
 			<div class="anaction">
 				<div id="timeSliderBg" class="slider" style="width: 320px;"><div id="timeSlider" class="knob" style="width: 40px">-</div></div>
 			</div>
-			
+
 			<h5>Volumeslider 1: Vertical, snap enabled, volume display</h5>
 
 			<div class="anaction">
 				<div id="volSliderBg" class="slider" style="height: 127px; width: 40px;"><div id="volSlider" class="knob" style="height: 15px; width: 36px;">-</div></div>
 			</div>
-			
+
 			<h5>Volumeslider 2: Horizontal, no snap</h5>
 
 			<div class="anaction">

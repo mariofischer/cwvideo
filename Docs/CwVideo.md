@@ -193,6 +193,33 @@ CwVideo Method: getReadyState {#CwVideo:getReadyState}
 
 
 
+
+CwVideo Method: fullscreen {#CwVideo:fullscreen}
+-------------------------------------------------------
+
+
+### Syntax:
+
+
+
+### Returns:
+
+
+
+CwVideo Method: toggleFullscreen {#CwVideo:toggleFullscreen}
+-------------------------------------------------------
+
+
+### Syntax:
+
+
+
+### Returns:
+
+
+
+
+
 Class: CwVideo.Timeline {#CwVideo.Timeline}
 ===========================================
 

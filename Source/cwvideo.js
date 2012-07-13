@@ -196,6 +196,42 @@ CwVideo = new Class({
 	 		case this.video.HAVE_ENOUGH_DATA: return 'have enough data';
 	 		default: return 'unknown state';
 		}
+	},
+
+	// make fullscreen
+	fullscreen: function()
+	{
+		if (this.video.requestFullScreen) {
+			this.video.requestFullScreen();
+		} else if (this.video.mozRequestFullScreen) {
+			this.video.mozRequestFullScreen();
+		} else if (this.video.webkitRequestFullScreen) {
+			this.video.webkitRequestFullScreen();
+		}
+	},
+
+	// toggle fullscreen
+	toggleFullscreen: function()
+	{
+		if (this.video.requestFullScreen) {
+			if (!document.fullScreen) {
+				this.video.requestFullscreen();
+			} else {
+				document.exitFullScreen();
+			}
+		} else if (this.video.mozRequestFullScreen) {
+			if (!document.mozFullScreen) {
+				this.video.mozRequestFullScreen();
+			} else {
+				document.mozCancelFullScreen();
+			}
+		} else if (this.video.webkitRequestFullScreen) {
+			if (!document.webkitIsFullScreen) {
+				this.video.webkitRequestFullScreen();
+			} else {
+				document.webkitCancelFullScreen();
+			}
+		}
 	}
 });
 
@@ -323,11 +359,12 @@ CwVideo.Timeline = new Class({
 			    rem = time % 3600;
 			    min = Math.floor(rem / 60);
 			    sec = Math.floor(rem % 60);
+				frame = time - Math.floor(time % (3600*60));
 			    if (hr > 0) {
-			    	$(this.options.timeDisplay).set('html', hr + ":" + (min < 10 ? "0"+min : min) + ":" + (sec < 10 ? "0"+sec : sec));
+			    	$(this.options.timeDisplay).set('html', hr + ":" + (min < 10 ? "0"+min : min) + ":" + (sec < 10 ? "0"+sec : sec) + "." + frame);
 			    }
 			    else {
-			    	$(this.options.timeDisplay).set('html', min + ":" + (sec < 10 ? "0"+sec : sec));
+			    	$(this.options.timeDisplay).set('html', min + ":" + (sec < 10 ? "0"+sec : sec) + "." + frame);
 			    }
 
 			}
