@@ -106,6 +106,7 @@ CwVideo = new Class({
 	rewind: function()
 	{
 		this.video.set('currentTime', this.startTime);
+		this.updateTime(0.0000001);
 	},
 
 	// move playhead forward, backward (positive or negative number) or to a specific position ("mm:ss" as string)
@@ -319,6 +320,10 @@ CwVideo.Timeline = new Class({
 			this.updateTime(this.startTime);
 			this.attach();
 		}.bind(this));
+
+		if (this.options.timeDisplay) {
+			this.updateTime(0.0000001);
+		}
 	},
 
 	updatePosition: function(time)
@@ -355,18 +360,23 @@ CwVideo.Timeline = new Class({
 				}
 			}
 			else {
-			    hr = Math.floor(time / 3600);
-			    rem = time % 3600;
-			    min = Math.floor(rem / 60);
-			    sec = Math.floor(rem % 60);
-				frame = time - Math.floor(time % (3600*60));
-			    if (hr > 0) {
-			    	$(this.options.timeDisplay).set('html', hr + ":" + (min < 10 ? "0"+min : min) + ":" + (sec < 10 ? "0"+sec : sec) + "." + frame);
-			    }
-			    else {
-			    	$(this.options.timeDisplay).set('html', min + ":" + (sec < 10 ? "0"+sec : sec) + "." + frame);
-			    }
+				//if (time !== 0) {
+					hr = Math.floor(time / 3600);
+			    	rem = time % 3600;
+			    	min = Math.floor(rem / 60);
+			    	sec = Math.floor(rem % 60);
+					frame = Math.floor((time - sec) * 10);
 
+					if (hr > 0) {
+			    		$(this.options.timeDisplay).set('html', hr + ":" + (min < 10 ? "0"+min : min) + ":" + (sec < 10 ? "0"+sec : sec) + "." + frame);
+			    	}
+			    	else {
+			    		$(this.options.timeDisplay).set('html', min + ":" + (sec < 10 ? "0"+sec : sec) + "." + frame);
+			    	}
+				//}
+				//else {
+					// $(this.options.timeDisplay).set('html', "0:00.0");
+				//}
 			}
 		}
 	}

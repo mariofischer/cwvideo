@@ -14,7 +14,7 @@ window.addEvent('domready', function() {
 	var timeSlider1 = new CwVideo.Timeline('timeSliderBg', 'timeSlider', {
 	    wheel: true,
 	    video: 'myvid',
-		timeDisplay: 'timeSlider'
+		timeDisplay: 'timeSliderText'
 	});
 
 	var volSlider1 = new CwVideo.Volumeslider('volSliderBg', 'volSlider', {
@@ -83,8 +83,13 @@ window.addEvent('domready', function() {
 			<h5>Example video (h.264/ogg)</h5>
 			<div class="anaction">
 				<video id="myvid" width="320" height="120" controls="controls">
+					<!--
+					start at given location:
 					<source src="cwvideo-mp4.mp4#t=1.1,3.3" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 					<source src="cwvideo-ogg.ogg#t=1.1,3.3" type='video/ogg; codecs="theora, vorbis"'></video>
+					-->
+					<source src="cwvideo-mp4.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+					<source src="cwvideo-ogg.ogg" type='video/ogg; codecs="theora, vorbis"'></video>
 				<button onclick="myvideo.video.set('controls', !myvideo.video.get('controls'))">toggle browser video controls</button>
 			</div>
 			<div class="anaction">
@@ -124,7 +129,12 @@ window.addEvent('domready', function() {
 			<h5>Timeline: Current time displayed, mouse wheel control</h5>
 
 			<div class="anaction">
-				<div id="timeSliderBg" class="slider" style="width: 320px;"><div id="timeSlider" class="knob" style="width: 40px">-</div></div>
+				<div id="timeSliderBg" class="slider" style="width: 320px;">
+					<div id="timeSlider" class="knob" style="width: 5px">
+						&nbsp;
+						<div id="timeSliderText" class="knob" style="width: 40px">-</div>
+					</div>
+				</div>
 			</div>
 
 			<h5>Volumeslider 1: Vertical, snap enabled, volume display</h5>
